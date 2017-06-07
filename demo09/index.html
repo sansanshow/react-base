@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>表单</title>
+		<script src="../build/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../build/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../build/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="example"></div>
+	    <script type="text/babel">
+	      // ** Our code goes here! **
+	     var Input = React.createClass({
+			 getInitialState:function () {
+				 return {value:"hello kovii"};
+			 },
+			 onTextChange:function (event) {
+				 this.setState({value:event.target.value});
+			 },
+			 render:function () {
+				 var value = this.state.value;
+				 return (
+					 <div>
+						 <h1>Mvvm</h1>
+						 <input type="text" value={value} onChange={this.onTextChange}/>
+						 <p>{value}</p>
+					 </div>
+				 );
+			 }
+		 });
+			ReactDOM.render(<Input/>,document.getElementById("example"))
+	    </script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>Demo01</title>
+		<script src="../build/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../build/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../build/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="example"></div>
+	    <script type="text/babel">
+	      // ** Our code goes here! **
+			var LikeButton = React.createClass({
+				getInitialState:function () {
+					return {like:false};
+				},
+				handleClick:function () {
+					this.setState({like:!this.state.like});
+				},
+				render:function () {
+					var text = this.state.like ? "like" : 'haven\'t like';
+					return (
+						<p onClick={this.handleClick}>
+							You {text} this toggle
+						</p>
+					);
+				}
+
+			});
+			ReactDOM.render(
+				<LikeButton/>,
+					document.getElementById('example')
+			)
+	     
+	    </script>
+	</body>
+</html>
