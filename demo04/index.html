@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>组件component</title>
+		<style>
+			.red{
+				color: red;
+			}
+		</style>
+		<script src="../build/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../build/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../build/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="example"></div>
+	    <script type="text/babel">
+	      // ** Our code goes here! **
+	     var HelloMessage = React.createClass({
+	     	render:function(){
+	     		return <div>
+	     			<h1> Hello {this.props.name} </h1>
+	     			<p class="red">{this.props.ptext}</p>
+	     		</div>;
+	     	}
+	     });
+	     ReactDOM.render(
+	     	<HelloMessage name="Keaven" ptext="hahahahhahahh"/>,
+	     	document.getElementById("example")
+	     );
+	    </script>
+	</body>
+</html>

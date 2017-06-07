@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>PropTypes</title>
+		<script src="../build/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../build/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../build/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h4>example验证属性</h4>
+		<div id="example"></div>
+		<hr/>
+		<h4>example2：默认值</h4>
+		<div id="example2"></div>
+	    <script type="text/babel">
+	      // ** Our code goes here! **
+	     var MyTitle = React.createClass({
+	     	getDefaultProps: function(){
+	     		return {
+	     			title:'Hello World!~'
+	     		}
+	     	},
+	     	propTypes:{
+	     		title: React.PropTypes.string.isRequired, // title必须是一个字符串，而且是必须的
+	     	},
+	     	render: function(){
+	     		return <h1>{this.props.title}</h1>
+	     	}
+	     });
+//	     var data = "123";
+	     var data = ""+12345;
+	     ReactDOM.render(
+	     	<MyTitle title={data}/>,
+	     	document.getElementById('example')
+	     );
+	     var MyTitle2 = React.createClass({
+	     	// 设置默认值
+	     	getDefaultProps: function(){
+	     		return {
+	     			title:'Hello World!~'
+	     		}
+	     	},
+	     	// 设置属性类型
+	     	propTypes:{
+	     		title: React.PropTypes.string.isRequired, // title必须是一个字符串，而且是必须的
+	     	},
+	     	render: function(){
+	     		return <h1>{this.props.title}</h1>
+	     	}
+	     });
+//	     var data = "123";
+//	     var data = 12345;
+	     ReactDOM.render(
+	     	<MyTitle2/>,
+	     	document.getElementById('example2')
+	     );
+	    </script>
+	</body>
+</html>
