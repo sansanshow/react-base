@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>组件之间调用</title>
+		<script src="../build/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../build/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../build/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="example"></div>
+	    <script type="text/babel">
+	      // ** Our code goes here! **
+			var HelloMessage = React.createClass({
+				getInitialState:function () {
+					return {name:'Default Name'};
+				},
+				propTypes:{
+					title:React.PropTypes.string.isRequired,
+				},
+				render:function () {
+					var name = this.props.title;
+					return (<h1>Hello {name},{this.props.title}</h1>)
+				}
+			});
+			var MessageList = React.createClass({
+				render: function(){
+					return (
+					<ol>
+						{
+							React.Children.map(this.props.children, function(child,index){
+								var title = child.
+								return <HelloMessage title={index}>{child}</HelloMessage>
+							})
+						}
+					</ol>
+					);
+				}
+			});
+	     	ReactDOM.render(
+				<MessageList>
+					<span title="what?">Lucy</span>
+					<span title="why?">Rose</span>
+					<span title="where?">Jack</span>
+				</MessageList>,
+					document.getElementById('example')
+			)
+	    </script>
+	</body>
+</html>
